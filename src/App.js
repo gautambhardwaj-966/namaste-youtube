@@ -1,9 +1,9 @@
 import logo from './logo.svg';
-import './App.css';
+import './index.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="text-green-900 text-3xl font-bold">
       This is Youtube clone
     </div>
   );
