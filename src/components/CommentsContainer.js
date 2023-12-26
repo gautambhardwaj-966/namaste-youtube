@@ -27,25 +27,10 @@ const CommentsData = [
 ];
 //({comments})  we need top destructure it by using{}
 
-const CommentsList = ({comments}) => {
-     //For each comment we are displying the comment
-     //Disclaimer:Dont use indices as keys
-     <div>
-      return  comments.map((comment,index)=>
-            <Comment key={index} data={comment}/>
-            <div>
-                
-            </div>
-            </div> 
-        );
-    
-
-};
-
 const Comment = ({data})=>{
 const{name ,text,replies} = data;
 return(
-    <div className='flex shadow-sm bg-gray-100 p-2 rounded-lg my-2'>
+<div className='flex shadow-sm bg-gray-100 p-2 rounded-lg my-2'>
 <img
 className='w-8 h-8'
 alt="user"
@@ -60,6 +45,19 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAclBMV
 );
 };
 
+const CommentsList = ({comments}) => {
+    //For each comment we are displying the comment
+    //Disclaimer:Dont use indices as keys
+    //We are doing recursion for replies
+    //N-level nesting
+     return  comments.map((comment,index)=>
+     <div>
+          <Comment key={index} data={comment}/>       
+<div className='pl-5 border border-l-black ml-5'>
+<CommentsList comments={comment.replies}/>
+</div>
+          </div>
+)};
 
 const CommentsContainer = () => {
   return (
