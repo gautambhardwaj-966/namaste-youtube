@@ -27,7 +27,7 @@ dispatch(closeMenu());
       allowfullscreen></iframe>
       </div>
       <div className='w-full'>
-        <LiveChat/>
+       <LiveChat/>
       </div>
     </div>
     <CommentsContainer/>
